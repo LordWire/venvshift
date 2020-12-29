@@ -25,7 +25,7 @@ Installing the prerequisites is out of the scope of this document, so feel free 
 Setting this up is as simple as sourcing the script from your `.bashrc` or `.bash_profile`:
 
 ```bash
-source /script/path/venvshift.sh`
+source /script/path/venvshift.sh
 ```
 
 By default, all virtual environments will be installed in `~/.venvs`. If you wish to install environments to a different place, you can set where the  variable `__venvshift_venv_path` points at. 
