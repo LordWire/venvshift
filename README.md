@@ -5,8 +5,10 @@
 
 ### introduction
 
-This is a simple bash wrapper script for python virtualenv. Its purpose is to shorten the tedious commands used to create and switch between different virtualenvs, without actually introducing any extra functionality (and hence, complexity). 
 
+> A simple bash wrapper script for python virtualenv. Switch between virtualenvs in a less tedious way and increase your productivity!
+
+<p align="center"><img src="/img/venvshift.gif?raw=true"/></p>
 
 
 ### installation
@@ -36,14 +38,14 @@ By default, all virtual environments will be installed in `~/.venvs`. If you wis
 The script provides one simple command, `venvshift`, which can be invoked with a single argument or no argument at all. There is also tab completion and fzf completion available, which is discussed below.
 
 
-###### Invoking with an argument
+##### Invoking with an argument
 When called with an argument, venvshift will create it if it doesn't exist and/or activate it. Tab completion will provide all the available virtualenvs inside `__venvshift_venv_path`.
 
 
-###### Invoking without arguments
+##### Invoking without arguments
 Calling without arguments will trigger fzf, showing a list of all available environments. Selecting one will activate it. 
 
-###### Conventions
+##### Conventions
 
 The purpose of this command is to speed up the creation of environments and switching between them. For this, the following conventions are followed:
 - Virtualenvs are always activated with the activate command
