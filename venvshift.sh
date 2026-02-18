@@ -47,7 +47,10 @@ __venvshift_handle_environment() {
         source $__venvshift_venv_path/$1/bin/activate
     else
         echo environment does not exist. Creating...
-        virtualenv $__venvshift_venv_path/$1
+        if ! virtualenv $__venvshift_venv_path/$1; then
+            echo failed to create environment
+            return 1
+        fi
         source $__venvshift_venv_path/$1/bin/activate
     fi
 
@@ -56,11 +59,11 @@ __venvshift_handle_environment() {
 __venvshift_trigger_fzf() {
     local selection=`__venvshift_environment_list raw  | fzf`
 
-    if [ -z $selection ]; then
+    if [[ -z "$selection" ]]; then
         echo you did not choose any environment
         return
     else
-        venvshift $selection
+        venvshift "$selection"
         return
     fi
 
