@@ -8,8 +8,8 @@ mkdir -p $__venvshift_venv_path
 
 # check for prerequisites. 
 __venvshift_checkenv() {
-    if ! command -v fzf &> /dev/null; then echo missing fzf; exit 1; fi
-    if ! command -v fzf &> /dev/null; then echo missing virtualenv; exit 1; fi
+    if ! command -v fzf &> /dev/null; then echo missing fzf; return 1; fi
+    if ! command -v virtualenv &> /dev/null; then echo missing virtualenv; return 1; fi
 }
 
 # get an environment list and maybe feed it to bash completion too.
@@ -68,7 +68,7 @@ __venvshift_trigger_fzf() {
 }
 
 venvshift () {
-    __venvshift_checkenv
+    __venvshift_checkenv || return 1
     
    
     case "$1" in
